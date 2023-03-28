@@ -1,29 +1,26 @@
 package thuc_hanh.bai3;
 
 public class SelectionSort {
-    static double[] list = {1, 9, 4.5, 6.6, 5.7, -4.5};
-   public static void selectionSort(double[] list){
-       for (int i = 0; i < list.length - 1; i++) {
-           double currentMin = list[i];
-           int currentMinIndex = i;
+    static int[] arr = {5, 2, 9, 4, 5, 7, 4};
 
-           for (int j = i + 1; j < list.length; j++) {
-               if (currentMin > list[j]) {
-                   currentMin = list[j];
-                   currentMinIndex = j;
-               }
-           }
-           if (currentMinIndex != i) {
-               list[currentMinIndex] = list[i];
-               list[i] = currentMin;
-           }
-       }
-   }
+    public static void selectionSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minValue = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minValue]) {
+                    minValue = j;
+                }
+            }
+            int temp = arr[minValue];
+            arr[minValue] = arr[i];
+            arr[i] = temp;
+        }
+    }
 
     public static void main(String[] args) {
-       selectionSort(list);
-        for (int i = 0; i < list.length; i++) {
-            System.out.println(list[i]+" ");
+        selectionSort(arr);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i] + " ");
         }
     }
 }
